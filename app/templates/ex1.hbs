@@ -5,7 +5,7 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
 <p>Note :</p>
-<Textarea @value={{this.content}} style="width: 1128px; height: 93px;"></Textarea>
+<Textarea @value={{this.content}} style="width: 1128px; height: 93px;" maxlength={{this.MAX}}></Textarea>
 <p></p>
 <button type="button" {{on "click" this.clear}} class="btn btn-primary">clear</button>
 <button type="button" {{on "click" this.save}} class="btn btn-primary">save</button>
