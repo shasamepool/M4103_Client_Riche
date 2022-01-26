@@ -26,4 +26,15 @@ export default class Ex1Controller extends Controller {
   get estSave(){
     {{if(this.content!=this.saveC) return 'Note Modifier'; return 'Note Sauvegarder'}}
   }
+
+  get classAlert(){
+    if(this.size < 20) {
+      return 'alert alert-danger';
+    }
+    if(this.size < 50) {
+      return 'alert alert-warning';
+    }
+    return 'alert alert-success';
+  }
+
 }
