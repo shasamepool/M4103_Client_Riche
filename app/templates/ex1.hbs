@@ -1,0 +1,6 @@
+{{page-title "Ex1"}}
+<Textarea @value={{this.content}}></Textarea>
+<p>{{this.size}}</p>
+<p>{{this.content}}</p>
+<button type="button"{{on "click" this.clear}}>clear</button>
+{{outlet}}
