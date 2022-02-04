@@ -15,9 +15,8 @@ export default class ProductServicesService extends Service {
   }
 
   get sumActive() {
-    //const reducer = (previousValue, currentValue) => previousValue + currentValue;
-    //var total = this.activeServices.reduce(getSum, 0);
-    return this.activeServices.reduce(0, 0);
+    let total = (somme, product) => product.price + somme;
+    return this.activeServices.reduce(total, 0);
   }
   /*
   function sum(total, num) {
