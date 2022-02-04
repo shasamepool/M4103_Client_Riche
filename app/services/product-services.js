@@ -18,8 +18,5 @@ export default class ProductServicesService extends Service {
     let total = (somme, product) => product.price + somme;
     return this.activeServices.reduce(total, 0);
   }
-  /*
-  function sum(total, num) {
-    return total + Math.round(num);
-  }*/
+
 }
