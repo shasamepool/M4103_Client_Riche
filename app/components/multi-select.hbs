@@ -1,3 +1,7 @@
+<h1>Selectionner vos produits</h1>
+<b>Produits disponibles :</b><br>
+
+
 <select size="10" ...attributes multiple="multiple" {{on "change" this.change}}>
   {{#each @elements as |elm|}}
     <option value={{elm.id}} selected={{array-contains @selected elm this.id}}>{{elm.title}}</option>

@@ -1,3 +1,8 @@
 {{page-title "Step1"}}
-<MultiSelect @elements={{@model}} @selected={{@model}} />
+<MultiSelect @elements={{this.dispoItems}} @selected={{this.dispoItems_}} @onChange={{this.changeDispo}} />
+<ul>
+  {{#each this.dispoItems_ as |items|}}
+    <li>{{items.title}}</li>
+  {{/each}}
+</ul>
 {{outlet}}
