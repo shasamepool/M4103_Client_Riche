@@ -1,0 +1,16 @@
+{{page-title "contacts"}}
+<h1>Contact ({{@model.length}})</h1>
+{{#each @model.contacts as |contact|}}
+  <li>{{contact.nom}}
+    <button type="button" {{action "delete" contact}}>Delete</button>
+  </li>
+{{/each}}
+
+
+<br>
+<p>Contact(s) supprimé(s) : {{@model.deletedCount}}</p>
+
+
+
+{{outlet}}
+
