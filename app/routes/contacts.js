@@ -8,9 +8,9 @@ export default class ContactsRoute extends Route {
 
   model() {
     return new Contacts(this.store.findAll('contacts'));
+  }
 
-  @action
-  delete(contact) {
+  @action delete(contact) {
     contact.deleteRecord();
     //contacts.save();
   }
