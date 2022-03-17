@@ -1,11 +1,15 @@
 import Abstractroute from './AbstractRoute';
 import { action } from '@ember/object';
+import { service } from '@ember/service';
 import RSVP from 'rsvp';
 
 export default class BoardRoute extends Abstractroute {
+  @service store
+
   model() {
     //let user = this.userAuth.user;
     return this.userAuth.getUser();
+
     /*
     if (user) {
       return RSVP.hash({
