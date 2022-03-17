@@ -4,22 +4,19 @@ import { service } from '@ember/service';
 import RSVP from 'rsvp';
 
 export default class BoardRoute extends Abstractroute {
-  @service store
+  @service store;
 
   model() {
-    //let user = this.userAuth.user;
-    return this.userAuth.getUser();
-
-    /*
+    let user = this.userAuth.user;
     if (user) {
       return RSVP.hash({
         orders: this.store.query('order', {
           filter: { idEmployee: user.id },
-          include: 'orderdetails',
+          include: 'orderdetail',
         }),
         employee: user,
       });
-    }*/
+    }
   }
 
   @action logout() {
