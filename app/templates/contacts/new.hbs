@@ -1,9 +1,0 @@
-{{page-title "New"}}
-
-<h2>Ajout/Modification</h2>
-{{input type="text" value=@model.nom placeholder="nom"}}
-{{input type="text" value=@model.prenom}}
-{{input type="email" value=@model.email}}
-<button {{action "save" @model}}>Enregistrer</button>
-
-{{outlet}}

@@ -1,16 +1,29 @@
-{{page-title "contacts"}}
-<h1>Contact ({{@model.length}})</h1>
-{{#each @model.contacts as |contact|}}
-  <li>{{contact.nom}}
-    <button type="button" {{action "delete" contact}}>Delete</button>
-  </li>
-{{/each}}
+{{page-title "Contacts"}}
+<table class="table">
+  <tbody>
+  {{#each @model.contacts as |contact|}}
+    <tr>
+      <td>{{contact.nom}}</td>
+      <td>
+        <LinkTo class="btn btn-primary btn-sm" @route="contacts.update" @model={{contact}}>
+          <i class="bi bi-x"></i>
+        </LinkTo>
+        <button class="btn btn-danger btn-sm" type="button" {{action "delete" contact}}>
+          <i class="bi bi-x"></i>
+        </button>
+      </td>
+    </tr>
+  {{/each}}
+  </tbody>
+</table>
+<LinkTo class="btn btn-primary" @route="contacts.add">Ajouter un contact</LinkTo>
 
-
-<br>
-<p>Contact(s) supprimé(s) : {{@model.deletedCount}}</p>
-
-
-
+{{#if @model.deletedsCount}}
+  <button class="btn btn-danger" type="button" {{action "confirmDeletion" @model.deleteds}}>
+    Supprimer définitivement ({{@model.deletedsCount}})
+  </button>
+  <button class="btn btn-secondary" type="button" {{action "cancelDeletion" @model.deleteds}}>
+    Annuler la suppression ({{@model.deletedsCount}})
+  </button>
+{{/if}}
 {{outlet}}
-

@@ -1,19 +1,21 @@
+import { set } from '@ember/object';
+
 export default class Contacts {
-  data = [];
+  data;
 
   constructor(data) {
-    this.datas = data;
+    set(this, 'data', data);
   }
 
   get contacts() {
-    return this.datas.filterBy('isDeleted', false);
+    return this.data.filterBy('isDeleted', false);
   }
 
-  get deleted() {
-    return this.datas.filterBy('isDeleted', true);
+  get deleteds() {
+    return this.data.filterBy('isDeleted', true);
   }
 
-  get deletedCount() {
-    return this.deleted.length;
+  get deletedsCount() {
+    return this.deleteds.length;
   }
 }
