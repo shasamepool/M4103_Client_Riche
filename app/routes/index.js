@@ -5,7 +5,7 @@ import { service } from '@ember/service';
 export default class IndexRoute extends Abstractroute {
   @service store;
 
-  model(){
+  model() {
     return {};
   }
 
@@ -18,7 +18,7 @@ export default class IndexRoute extends Abstractroute {
     this.store
       .query('employee', {
         filter: {
-          email: user.email
+          email: user.email,
         },
       })
       .then((employees) => {
