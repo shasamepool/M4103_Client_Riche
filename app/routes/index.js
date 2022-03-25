@@ -1,18 +1,14 @@
-import { action } from '@ember/object';
-import Abstractroute from './AbstractRoute';
+import Route from '@ember/routing/route';
 import { service } from '@ember/service';
+import { action } from '@ember/object';
 
-export default class IndexRoute extends Abstractroute {
+export default class IndexRoute extends Route {
+  @service userAuth;
   @service store;
 
   model() {
     return {};
   }
-
-  /*
-  Seras appeler dasn le fomulaire de connx avec le user
-  pour voir si l'email est associée a un employee ..
-  */
 
   @action login(user) {
     this.store

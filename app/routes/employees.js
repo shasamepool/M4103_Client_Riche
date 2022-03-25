@@ -1,9 +1,6 @@
-import Route from '@ember/routing/route';
-import { service } from '@ember/service';
+import Abstractroute from './AbstractRoute';
 
-export default class EmployeesRoute extends Route {
-  @service store;
-
+export default class EmployeesRoute extends Abstractroute {
   model() {
     return this.store.findAll('employee');
   }
