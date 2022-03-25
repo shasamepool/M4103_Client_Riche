@@ -12,19 +12,33 @@
   </button>
 </div>
 <h2>Préparation des commandes</h2>
+
 <ul>
+  <h3>Créées (en attente de préparation)</h3>
   {{#each @model.orders as |order|}}
-<div>
+    <div>
       {{#if (eq order.status "created")}}
         <i class="hourglass icon"></i>
+        <LinkTo @route="order" @model={{order.id}}>
+          {{order.dateCreation}} <span class="ui circular label">{{order.count}}</span>
+        </LinkTo>
+        <label>{{order.toPay}} €</label>
       {{/if}}
+    </div>
+  {{/each}}
+</ul>
+
+<ul>
+  <h3>Préparées</h3>
+  {{#each @model.orders as |order|}}
+    <div>
       {{#if (eq order.status "prepared")}}
         <i class="check icon"></i>
+        <LinkTo @route="order" @model={{order.id}}>
+          {{order.dateCreation}} <span class="ui circular label">{{order.count}}</span>
+        </LinkTo>
+        <label>{{order.toPay}} €</label>
       {{/if}}
-      <LinkTo @route="order" @model={{order.id}}>
-        {{order.dateCreation}} <span class="ui circular label">{{order.count}}</span>
-      </LinkTo>
-      <label>{{order.toPay}} €</label>
-</div>
+    </div>
   {{/each}}
 </ul>

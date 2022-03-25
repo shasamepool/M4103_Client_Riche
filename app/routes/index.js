@@ -7,6 +7,7 @@ export default class IndexRoute extends Route {
   @service store;
 
   model() {
+    //this.store.findRecord('employee',1,{include:'orders'});
     return {};
   }
 
