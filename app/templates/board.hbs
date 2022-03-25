@@ -1,16 +1,30 @@
+<link rel="stylesheet" type="text/css" href="semantic/dist/semantic.min.css">
+<script
+  src="https://code.jquery.com/jquery-3.1.1.min.js"
+  integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+  crossorigin="anonymous"></script>
+<script src="semantic/dist/semantic.min.js"></script>
+
 <div class="ui green segment">
   <span class="ui label">{{@model.employee.email}}</span>
   <button class="ui black button" type="button" {{action "logout"}}>
     Logout
   </button>
 </div>
-<h2>Orders</h2>
+<h2>Préparation des commandes</h2>
 <ul>
   {{#each @model.orders as |order|}}
-    <li>
+<div>
+      {{#if (eq order.status "created")}}
+        <i class="hourglass icon"></i>
+      {{/if}}
+      {{#if (eq order.status "prepared")}}
+        <i class="check icon"></i>
+      {{/if}}
       <LinkTo @route="order" @model={{order.id}}>
         {{order.dateCreation}} <span class="ui circular label">{{order.count}}</span>
       </LinkTo>
-    </li>
+      <label>{{order.toPay}} €</label>
+</div>
   {{/each}}
 </ul>
