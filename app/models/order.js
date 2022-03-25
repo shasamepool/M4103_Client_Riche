@@ -11,6 +11,7 @@ export default class OrderModel extends Model {
   @belongsTo('user') user;
 
   get count() {
+    //Modifier ici pour le count et le prix total
     return this.orderdetails.length;
   }
 }
