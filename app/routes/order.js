@@ -1,18 +1,9 @@
-import Route from '@ember/routing/route';
-import { service } from '@ember/service';
+import Abstractroute from './AbstractRoute';
 
-export default class OrderRoute extends Route {
-  @service store;
-  @service userAuth;
-
-
+export default class OrderRoute extends Abstractroute {
   model(params) {
-
-    return {'order':this.store
-      .query('order', {
-        filter: {
-          id: params.order_id,
-        },
-      })};
+    return this.store.findRecord('order', params.order_id, {
+      include: 'orderdetails,user',
+    });
   }
 }

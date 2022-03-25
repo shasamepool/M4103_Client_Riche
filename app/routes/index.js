@@ -1,13 +1,12 @@
-import Route from '@ember/routing/route';
 import { service } from '@ember/service';
 import { action } from '@ember/object';
+import Abstractroute from './AbstractRoute';
 
-export default class IndexRoute extends Route {
+export default class IndexRoute extends Abstractroute {
   @service userAuth;
   @service store;
 
   model() {
-    //this.store.findRecord('employee',1,{include:'orders'});
     return {};
   }
 

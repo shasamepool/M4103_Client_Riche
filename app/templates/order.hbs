@@ -1,3 +1,44 @@
-<h1>LALAL</h1>
+<link rel="stylesheet" type="text/css" href="semantic/dist/semantic.min.css">
+<script
+  src="https://code.jquery.com/jquery-3.1.1.min.js"
+  integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+  crossorigin="anonymous"></script>
+<script src="semantic/dist/semantic.min.js"></script>
 
-<p>name : {{userAuth.name}}</p>
+<h1>{{@model.user.name}} ( {{@model.user.email}} )</h1>
+<p>{{@model.dateCreation}}</p>
+
+<table>
+  <tr>
+    <th>Produit</th>
+    <th>Quantité</th>
+    <th>Prix</th>
+    <th>Montant</th>
+    <th>Preparation</th>
+  </tr>
+{{#each @model.orderdetails as |order|}}
+    <tr>
+    <th>{{order.product.name}}</th>
+    <th>{{order.quantity}}</th>
+    <th>{{order.order.amount}} €</th>
+    <th>{{multiplie order.quantity order.order.amount}} €</th>
+    <th><input type="checkbox" checked="true"/></th>
+      {{action "setmontant" 2}}
+  </tr>
+
+
+  <tr>
+    <th></th>
+    <th></th>
+    <th></th>
+    <th>{{this.montant}}</th>
+    <th>{{order.order.toPay}} €</th>
+  </tr>
+{{/each}}
+
+</table>
+
+<h2>Produits préparés ()</h2>
+
+<button>Valider pour </button>
+
